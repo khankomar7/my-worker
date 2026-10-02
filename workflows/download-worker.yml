@@ -2,10 +2,6 @@ name: Download Worker
 
 on:
   workflow_dispatch:
-    inputs:
-      worker_name:
-        description: "Worker name"
-        required: true
 
 permissions:
   contents: write
@@ -20,7 +16,7 @@ jobs:
         env:
           CF_API_TOKEN: ${{ secrets.CF_API_TOKEN }}
           CF_ACCOUNT_ID: ${{ secrets.CF_ACCOUNT_ID }}
-          WORKER_NAME: ${{ inputs.worker_name }}
+          WORKER_NAME: silent-pine-e5cd
         run: |
           curl -s -D headers.txt \
             -H "Authorization: Bearer $CF_API_TOKEN" \
